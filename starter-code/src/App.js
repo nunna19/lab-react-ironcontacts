@@ -19,7 +19,8 @@ class App extends Component {
         <td> <img src={contact.pictureUrl} width="100px"></img></td>
         <td><p>{contact.name}</p></td>
         <td>{contact.popularity}</td>
-        <td><button onClick={this.delete(index)}>delete</button></td>
+        <td><button onClick={()=>{this.delete(i)}}>delete</button></td>
+        {/* <td><button onClick={this.delete(i)}>delete</button></td>  this way all info delete*/} 
         </tr>
       )
     })
@@ -70,12 +71,12 @@ sortByPop =()=>{
 }
 
 
-delete =()=>{
+delete =(i)=>{
   const contactsCopy = [...this.state.contacts];
-  contactsCopy.splice(index,1);
-  this.setState = {
+  contactsCopy.splice(i,1);
+  this.setState ({
     contacts:contactsCopy
-  }
+  })
 }
 
 
